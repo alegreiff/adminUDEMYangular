@@ -12,17 +12,22 @@ import { PagesModule } from './pages/pages.module';
 // RUTAS
 import { APP_ROUTES } from './app.routes';
 
+// TEMPORAL
+import { FormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent
+
   ],
   imports: [
     BrowserModule,
     APP_ROUTES,
-
     PagesModule,
+    FormsModule
 
   ],
   providers: [],
