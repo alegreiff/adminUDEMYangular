@@ -15,6 +15,10 @@ import { APP_ROUTES } from './app.routes';
 // TEMPORAL
 import { FormsModule } from '@angular/forms';
 
+//Servicios
+import { ServiceModule } from './services/service.module';
+
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     APP_ROUTES,
     PagesModule,
-    FormsModule
+    FormsModule,
+    ServiceModule
 
   ],
   providers: [],
