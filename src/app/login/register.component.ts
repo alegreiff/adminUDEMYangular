@@ -49,8 +49,8 @@ forma: FormGroup;
     }, { validators: this.sonIguales( 'password', 'password2' ) });
 
     this.forma.setValue({
-      nombre: 'Biko_xx',
-      correo: 'test_xx_@test.es',
+      nombre: 'Usuario TEST ',
+      correo: 'test00@test.net',
       password: '123456',
       password2: '123456',
       condiciones: true

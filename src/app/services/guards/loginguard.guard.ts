@@ -14,9 +14,9 @@ export class LoginguardGuard implements CanActivate {
 
     ){}
   canActivate(): boolean {
-    console.log("PASANDO POR EL LOGIN GUARD --  WOF")
+    /* console.log("PASANDO POR EL LOGIN GUARD --  WOF") */
     if( this._usuarioService.estaLogueado() ) {
-      console.log('USUARIO TOKENNED')
+      /* console.log('USUARIO TOKENNED') */
       return true
     }else{
       console.log('PAILAS MI PERRO')

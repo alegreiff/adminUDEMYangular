@@ -68,7 +68,12 @@ export class UsuarioService {
       localStorage.removeItem('email')
     }
     let url = URL_SERVICIOS + '/login';
-    return this.http.post( url, usuario )
+
+
+
+
+
+    return this.http.post( url, usuario)
     .pipe(
       map((res:any) => {
         this.guardarStorage( res.id, res.token, res.usuario )
@@ -96,13 +101,16 @@ export class UsuarioService {
     console.log("URL", url);
     return this.http.put( url, usuario ).pipe(
       map( (res: any) => {
-
+        if (usuario._id === this.usuario._id){
+          this.guardarStorage( res.usuario._id, this.token, res.usuario );
+        }
         Swal.fire(
           'Usuario actualizado',
           usuario.nombre,
           'success'
         )
-        this.guardarStorage( res.usuario._id, this.token, res.usuario );
+
+
 
         return true
 
@@ -124,6 +132,23 @@ export class UsuarioService {
     .catch( err => {
       console.log(err)
     } )
+  }
+
+  cargarUsuarios(desde: number = 0){
+    let url = `${URL_SERVICIOS}/usuario?desde=${desde}`;
+    return this.http.get(url);
+  }
+  buscarUsuarios(termino: string){
+    let url = `${URL_SERVICIOS}/busqueda/coleccion/usuarios/${termino}`;
+    return this.http.get(url).pipe(
+      map((res: any) => res.usuarios)
+    )
+  }
+
+  borrarUsuario(id: string){
+    let url = `${URL_SERVICIOS}/usuario/${id}/?token=${this.token}`;
+    return this.http.delete(url)
+
   }
 
 }
