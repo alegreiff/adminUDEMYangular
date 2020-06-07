@@ -40,7 +40,7 @@ export class MedicoComponent implements OnInit {
   }
   cargarmedico(id: string){
     this.ms.cargarMedico(id)
-    .subscribe( (medico: Medico) => {
+    .subscribe( (medico: any) => {
       this.medico = medico,
       this.medico.hospital = medico.hospital._id;
       this.cambioHospital( this.medico.hospital )
